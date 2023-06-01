@@ -1,12 +1,12 @@
 import React from "react";
 
-class FormPhoneComponent extends React.Component {
+class FormEmailComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      phone: "",
+      email: "",
       isvalid: false,
-      message: "Please Enter Number....",
+      message: "PLease Enter UR Email...",
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -17,19 +17,19 @@ class FormPhoneComponent extends React.Component {
     });
   }
 
-  phoneValidation() {
-    const regex = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i;
-    return !(!this.state.phone || regex.test(this.state.phone) === false);
+  emailValidation() {
+    const regex =/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i;
+    return !(!this.state.email || regex.test(this.state.email) === false);
   }
 
   onSubmit() {
-    const isPhoneValid = this.phoneValidation();
+    const isemailValid = this.emailValidation();
     this.setState(
       {
-        isvalid: isPhoneValid,
-        message: isPhoneValid
-          ? "Phone Number is Valid! And Alloted To Teja Nayak..."
-          : "Phone Number not valid!",
+        isvalid: isemailValid,
+        message: isemailValid
+          ? "Email is Valid!"
+          : "Email not valid!",
       },
       () => this.props.message
     );
@@ -56,12 +56,12 @@ class FormPhoneComponent extends React.Component {
       <div className="child-component">
         <div className="form-group mb-3">
           <label>
-            <strong>Phone</strong>
+            <strong>Email</strong>
           </label>
           <input
-            type="phone"
-            name="phone"
-            value={this.state.phone}
+            type="text"
+            name="email"
+            value={this.state.email}
             onChange={this.onChange}
             className="form-control"
           />
@@ -69,7 +69,7 @@ class FormPhoneComponent extends React.Component {
 
         <div className="d-grid">
           <button
-            type="submit"
+            type="text"
             className="btn btn-primary"
             onClick={() => this.onSubmit()}
           >
@@ -83,4 +83,4 @@ class FormPhoneComponent extends React.Component {
   }
 }
 
-export default FormPhoneComponent;
+export default FormEmailComponent;
