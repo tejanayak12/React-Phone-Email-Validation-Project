@@ -15,7 +15,6 @@ class FormEmailComponent extends React.Component {
     this.setState({
       phone: e.target.value,
 
-      
     });
   }
 
